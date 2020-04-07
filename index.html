@@ -1,136 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>web记事本</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0">
+  <title>WEB记事本</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/dlg-common.css">
+  <link rel="stylesheet" href="com/list/list.css">
+  <link rel="stylesheet" href="com/menubar/menubar.css">
+  <link rel="stylesheet" href="com/editor/editor.css">
+  <link rel="stylesheet" href="com/statusbar/statusbar.css">
+  <link rel="stylesheet" href="com/dlg-about/dlg-about.css">
+  <link rel="stylesheet" href="com/dlg-font/dlg-font.css">
+  <link rel="stylesheet" href="com/dlg-goto/dlg-goto.css">
+  <link rel="icon" href="images/notepad-icon-32.png" sizes="32x32" type="image/png">
 </head>
 <body>
-    <div class="all">
-        <ul class="menu-title">
-            <li class="title">文件(F)</li>
-            <li class="title">编辑(E)</li>
-            <li class="title">格式(O)</li>
-            <li class="title">查看(V)</li>
-            <li class="title">帮助(H)</li>
-        </ul>
-        <ul class="menus">
-            <li class="item">新建(N)<span class="span">Ctrl+N</span></li>
-            <li class="item">打开(O)...<span class="span">Ctrl+O</span></li>
-            <li class="item">保存(S)<span class="span">Ctrl+S</span></li>
-            <li class="item">另存为(A)...</li>
-            <li class="hr"></li>
-            <li class="item">页面设置(U)</li>
-            <li class="item">打印(P)<span class="span">Ctrl+P</span></li>
-            <li class="hr"></li>
-            <li class="item">退出(X)</li>
-        </ul>
-        <ul class="menus" style="width: 218px;left:58px">
-            <li class="item">撤销(U)<span class="span">Ctrl+U</span></li>
-            <li class="hr"></li>
-            <li class="item">剪切(T)...<span class="span">Ctrl+X</span></li>
-            <li class="item">复制(C)<span class="span">Ctrl+C</span></li>
-            <li class="item">粘贴(P)<span class="span">Ctrl+V</span></li>
-            <li class="item">删除(L)<span class="span">Del</span></li>
-            <li class="hr"></li>
-            <li class="item">使用Bing搜索...<span class="span">Ctrl+E</span></li>
-            <li class="item">查找(F)...<span class="span">Ctrl+F</span></li>
-            <li class="item">查找下一个(N)<span class="span">F3</span></li>
-            <li class="item">替换(R)...<span class="span">Ctrl+H</span></li>
-            <li class="item">转到(G)...<span class="span">Ctrl+G</span></li>
-            <li class="hr"></li>
-            <li class="item">全选(A)<span class="span">Ctrl+A</span></li>
-            <li class="item">时间/日期(D)<span class="span">F5</span></li>
-        </ul>
-        <ul class="menus" style="width: 156px;left:116px">
-            <li class="item">自动换行(W)</li>
-            <li class="item" id='font'>字体(F)...</li>
-        </ul>
-        <ul class="menus" style="width: 138px;left:174px">
-            <li class="item">状态栏(S)</li>
-        </ul>
-        <ul class="menus" style="width: 166px;left:234px">
-            <li class="item">查看帮助(H)...</li>
-            <li class="item">关于记事本(A)</li>
-        </ul>
-        <div class="text">
-            <textarea></textarea>
-            <!-- <textarea spellcheck="false" auto-size="none" autofocus="true" wrap="off"
-                style="overflow-x: scroll; font-family: Arial; font-size: 16px;"></textarea> -->
-        </div>
-        <div class='notepad-dlg-mask notepad-dlg-font'>
-            <div class='dialogbox notepad-dlgbox'>
-                <div class='notepad-dlg-titlebar'>
-                    <p class='title'>字体</p><span class='close-btn' title='关闭'>✖</span>
-                </div>
-                <div class='main notepad-dlg-main'>
-                    <div class='font-family'>
-                        <p>字体(F):</p>
-                        <div class='notepad-com-list' style='width: 176px;'><input class='editor' draggable='true' type='text' value='Arial'><br>
-                            <ul class='list'>
-                               <li class='item' style='font-family: Agency FB;'>Agency FB</li>
-                               <li class='item' style='font-family: Algerian;'>Algerian</li>
-                               <li class='item selected' style='font-family: Arial;'>Arial</li>
-                               <li class='item' style='font-family: Arial Rounded MT;'>Arial Rounded MT</li>
-                               <li class='item' style='font-family: Axure Handwriting;'>Axure Handwriting</li>
-                               <li class='item' style='font-family: Bahnschrift;'>Bahnschrift</li>
-                               <li class='item' style='font-family: Baskerville Old Face;;'>Baskerville Old Face</li>
-                               <li class='item'>Bauhaus 93</li>
-                               <li class='item' style='font-family: Bell MT;'>Bell MT</li>
-                               <li class='item' style='font-family: Berlin Sans FB;'>Berlin Sans FB</li>
-                               <li class='item' style='font-family: Bernard MT;'>Bernard MT</li>
-                               <li class='item' style='font-family: BlackAdder ITC;'>BlackAdder ITC</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class='font-style'>
-                        <p>字形(Y):</p>
-                        <div class='notepad-com-list' style='width: 132px;'><input class='editor' draggable='true' type='text' value='常规'><br>
-                            <ul class='list'>
-                                <li class='item selected'>常规</li>
-                                <li class='item' style='font-style: italic;'>斜体</li>
-                                <li class='item' style='font-weight: bold;'>粗体</li>
-                                <li class='item' style='font-weight: bold; font-style: italic;'>粗偏斜体</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class='font-size'>
-                        <p>大小(S):</p>
-                        <div class='notepad-com-list' style='width: 64px;'><input class='editor' draggable='true' type='text' value='16'><br>
-                            <ul class='list'>
-                                <li class='item'>8</li>
-                                <li class='item'>9</li>
-                                <li class='item'>10</li>
-                                <li class='item'>11</li>
-                                <li class='item'>12</li>
-                                <li class='item'>14</li>
-                                <li class='item selected'>16</li>
-                                <li class='item'>18</li>
-                                <li class='item'>20</li>
-                                <li class='item'>22</li>
-                                <li class='item'>24</li>
-                                <li class='item'>26</li>
-                                <li class='item'>28</li>
-                                <li class='item'>36</li>
-                                <li class='item'>48</li>
-                                <li class='item'>72</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <fieldset class='sample'>
-                        <legend>示例</legend>
-                        <p class='sample-txt' style='font-family: Arial; font-size: 16px;'>AaBbYyZz</p>
-                    </fieldset>
-                    <div class='script'><label>脚本(R):<br><select>
-                                <option value='西欧语言'>西欧语言</option>
-                                <option value='中文 GB2312'>中文 GB2312</option>
-                            </select></label></div><input class='btn-ok btn' type='button' value='确定'>
-                            <input class='btn-cancel btn' type='button' value='取消'>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="notepad-app"></div>
 </body>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="com/menubar/menubar.js"></script>
+<script src="com/editor/editor.js"></script>
+<script src="com/statusbar/statusbar.js"></script>
+<script src="com/dlg-about/dlg-about.js"></script>
+<script src="com/list/list.js"></script>
+<script src="com/dlg-font/dlg-font.js"></script>
+<script src="com/dlg-goto/dlg-goto.js"></script>
+<script src="js/app.js"></script>
+<script src="js/menu-data.js"></script>
 </html>
-<script src="main.js"></script>
